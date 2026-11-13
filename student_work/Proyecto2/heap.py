@@ -1,4 +1,7 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
+
 
 class Heap:
 
@@ -51,4 +54,12 @@ class Heap:
             plt.text(x, y, A[i], ha='center', va='center',
                      bbox=dict(boxstyle='circle', fc='lightblue'))
         plt.axis('off')
+        fotos_dir = Path(__file__).parent / "fotos"
+        fotos_dir.mkdir(exist_ok=True)
+        numero = 1
+        archivo = fotos_dir / f"heap_{numero:03}.png"
+        while archivo.exists():
+            numero += 1
+            archivo = fotos_dir / f"heap_{numero:03}.png"
+        plt.savefig(archivo, bbox_inches='tight')
         plt.show()
