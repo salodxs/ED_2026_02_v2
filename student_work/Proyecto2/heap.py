@@ -4,7 +4,6 @@ class Heap:
 
     def __init__(self):
         self.arreglo = [float('-inf')]
-
     def bajar(self, i):
         A = self.arreglo
         while 2 * i < len(A):
